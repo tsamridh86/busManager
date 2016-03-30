@@ -1,0 +1,86 @@
+body
+	{
+	background-image: url("5.jpg");
+	background-repeat: no-repeat;
+	background-position: left top;
+    background-attachment: fixed;
+	background-size: 100% 100%;
+	}
+
+a.logout
+{
+	position:absolute;
+	top:10px; right:10px;
+	font-size:20px;
+	text-decoration:none;
+	color:brown;
+}
+
+a.logout:hover
+{
+	background: yellow;
+	color: green;
+}
+
+
+div.ext
+{
+	height : 200px ;
+	border: 5px ridge green; border-radius: 25px;
+	margin: 10px; 
+	padding-left: 10px;
+	padding-right: 10px;
+
+}
+
+
+table.foot
+{
+	font-family:Georgia;
+	height: 100px;
+	width: 100%;
+	text-align: center;
+	color: green;
+	
+}
+
+h3.header
+{
+	font-family:Georgia;
+	color: green;
+	font-weight: bold italic;
+}
+h1.welcome
+{
+	font-family:Georgia;
+	color: green;
+
+}
+
+td.data
+{
+	font-family:Georgia;
+	color: green;
+	size : 20;
+}
+
+::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #F5F5F5;
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb
+{
+	background-color: #000000;
+	border: 2px solid #555555;
+	border-radius: 10px;
+}
