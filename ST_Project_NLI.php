@@ -3,8 +3,8 @@
 	
 	/*	Checking login authority 
 		Login failure will display warning messages and redirects to login page.
-		username to access : admin
-		password : baby
+		the usernames and thier respective passwords have been saved inside a table
+		relation: users(userName,pswd,authority)
 	*/
 	
 	$username = $_POST["user"];
