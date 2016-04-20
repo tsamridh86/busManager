@@ -47,5 +47,3 @@ echo "<font size = 5>The following buses are available:<font size = 5><br><br>";
 <tr><td><input type = submit /></td></tr>
 </table>
 </form>
-		";
-		
