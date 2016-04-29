@@ -54,7 +54,7 @@ $connect->close();
 	<input type = submit />
 	</form>
 	<?php
-		error_reporting(0);
+		
 		$routeno = $_GET["route"];
 		if($routeno=="None" || $routeno == "" || $routeno == null)
 			echo "You have not selected any route.";
@@ -87,14 +87,14 @@ $connect->close();
 	<h3 style = "color: green;">Buses on the selected route</h3>
 	<br>
 	<?php
-		error_reporting(0);
+		
 		$routeno = $_GET["route"];
 		if($routeno=="None" || $routeno == "" || $routeno == null) echo "Route not selected.";
 		else
 		{
 			echo "The following buses are available:<br>";
 			$connect = new mysqli("localhost","root","","st1_project");
-			$que = "select busNo, seatCapacity from bus where routeNo =".$routeno.";";
+			$que = "select busNo, seatingCap from bus where routeNo =".$routeno.";";
 			$result = $connect->query($que);
 			echo "
 				 <table width = 300>
@@ -106,7 +106,7 @@ $connect->close();
 			while ($row = $result->fetch_assoc())
 			{
 				echo "<tr><td>".$row["busNo"]."</td>";
-				echo "<td>".$row["seatCapacity"]."</td></tr>";
+				echo "<td>".$row["seatingCap"]."</td></tr>";
 			}
 			echo"</table>";
 			$connect->close();
@@ -115,10 +115,8 @@ $connect->close();
 </div>
 
 
-
-
 <div class = "login">	
-		<h2 style = "color: green; font-family: 'Book Antiqua'">Admin login</h2>
+		<h2 style = "color: green; font-family: 'Book Antiqua'">Login Portal</h2>
 		<form action = "ST_Project_NLI.php" method = "post">
 			<table width = "350" height = "70" style = "color : red; font-size:17px; border-spacing : 5px;">
 				<tr>
@@ -134,6 +132,8 @@ $connect->close();
 		</form>
 </div>
 
+<!--This is used to show the google map in a div below, but since it is internet memory hogging it has been temporarily removed -->
+<!--
 <div class="footer">
 <script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script>
 
@@ -145,3 +145,4 @@ $connect->close();
 </div>
 
 </body>
+-->
