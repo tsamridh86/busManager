@@ -67,9 +67,24 @@
 			<tr><td><input type = submit /></td></tr>
 		</table>
 	</form>
-
 </div>
 
+
+<div class = "ext">
+<h3 class = "header">Remove User:</h3>
+	<form method = "post" action = "ST_Project_Subs.php">
+		<select name = "delUser"/><?php
+			$connect = new mysqli("localhost","root","","st1_project")or die("Unable to connect to MySQL Server.");
+			$que = "select userName from users;";
+			$result = $connect->query($que);
+			while($row=$result->fetch_assoc())
+				echo "<option value = ".$row["userName"].">".$row["userName"]."</option>";
+			$connect->close();
+			?></select>
+		<input type = submit /></td></tr>
+	</form>
+
+</div>
 
 
 <table class = "foot">
