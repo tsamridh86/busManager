@@ -2,6 +2,38 @@
 <head> <link rel ="stylesheet" type="text/css" href="login.css">
 </head>
 <body>
+<?php
+/*
+This section is to be immediately executed in the beginning, it creates all the tables required in the database.
+The relations used in this project are:
+route(routeNo int primary key, src varchar(20) , destination varchar(20)) to keep track of all the routes in the database.
+bus ( busNo int primary key, seatingCap int , routeNo int )  this one is used to keep track of all the buses inside the database.
+users(userName,pswd,authority) this one is used to keep track of all the users in the database, two users are provided by default.
+booking(bookid int , userName varchar(25) , noOfSeats int , busNo int ) to keep track of all the booking done.
+station(stationNo int primary key, stationName varchar(20), routeNo int) to keep track of all the stations inside a route.
+*/
+
+$connect = new mysqli("localhost","root","","st1_project");
+$queBegin = "create table if not exists ";
+$queEnd = array("route(routeNo int primary key, src varchar(20) , destination varchar(20));","bus ( busNo int primary key, seatingCap int , routeNo int references route(routeNo));" , "users(userName varchar(20),pswd varchar(20),authority char(1));" , "booking(bookid int auto_increment primary key, userName varchar(25) , noOfSeats int , busNo int references bus(busNo));" , "station(stationNo int primary key, stationName varchar(20), routeNo int references route(routeNo));" );
+foreach ($queEnd as $read)
+	{
+		$connect->query($queBegin.$read);
+	}
+//providing two default users only if the number of users are zero
+$noOfUser = "select distinct userName from users;";
+$noOfUser = $connect->query($noOfUser);
+$noOfUser = mysqli_num_rows($noOfUser);
+if (!$noOfUser)
+	{
+		$user1 = "insert into users values ('samridh','simu','A');";
+		$user2 = "insert into users values ('people','move','U');";
+		$connect->query($user1);
+		$connect->query($user2);
+	}	
+$connect->close();
+?>
+
 
 <div class = "header"><h1 class= "movehead">Bus Managment System</h1></div>
 

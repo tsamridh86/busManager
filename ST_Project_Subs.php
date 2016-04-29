@@ -13,6 +13,7 @@
 	{
 		$connect = new mysqli("localhost","root","","st1_project") or die ("Unable to connect to MySQL server.");	//For connection failure.
 		$ins = "insert into bus values (".$busno.",".$seatcap.",".$routeno.");";
+		$connect->query($empTable);
 		$connect->query($ins);
 		$connect->close();
 	}
